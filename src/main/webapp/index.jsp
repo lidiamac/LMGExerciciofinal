@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="row p-3 ps-5 fs-4 justify-content-end">
-			<p class="w-25">ANO: <c:out value="${anoIPVA}" /></p>
+			<p class="w-25">ANO: <c:out value="${anoIPVA}"/></p>
 		</div>
 
 		<div class="row mt-5">

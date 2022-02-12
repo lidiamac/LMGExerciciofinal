@@ -29,6 +29,8 @@ public class Teste {
 //		System.out.println(dao.mostrarVeiculos());
 		dao.contarCarros();
 		dao.mostrarAnoIPVA();
-	
+//		dao.compararAnos();
+		System.out.println(dao.mostrarVeiculos());
+		//Carro c = new Carro();
 	}
 }

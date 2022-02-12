@@ -23,7 +23,7 @@ public class DAO {
 			PreparedStatement p = con.prepareStatement("insert into carro (modelo, ano) values (?, ?)");
 			p.setString(1, carro.getModeloCarro());
 			p.setInt(2, carro.getAnoCarro());
-			// p.setBoolean(3, carro.getPagaIPVA());
+			//p.setBoolean(3, carro.getFlag_ipva());
 			System.out.println(p);
 
 			p.executeUpdate();
@@ -104,6 +104,8 @@ public class DAO {
 		}
 	}
 
+	
+	
 	public Carro buscarCarro(Integer cod_carro) {
 
 		Conexao c = Conexao.getInstance();
@@ -112,6 +114,7 @@ public class DAO {
 
 		try {
 			PreparedStatement p = con.prepareStatement("select * from carro where id = ?");
+			PreparedStatement p2 = con.prepareStatement("select * from carro where id = ?");
 			p.setInt(1, cod_carro);
 			ResultSet r = p.executeQuery();
 
@@ -135,6 +138,7 @@ public class DAO {
 		return carro;
 	}
 
+	
 	
 	
 	public Integer mostrarAnoIPVA() {
@@ -186,4 +190,19 @@ public class DAO {
 		}
 		return null;    		
     }
+	
+	
+	
+	 public void compararAnos() {
+//		 Carro c = new Carro();
+		ArrayList<Carro> carros = new ArrayList();
+				//this.mostrarVeiculos();
+
+		 for (Carro c : carros) {
+				if (c.getAnoCarro() <= this.mostrarAnoIPVA()) {
+						c.setFlag_ipva(true);
+				}
+				
+			} 
+	 }
 }

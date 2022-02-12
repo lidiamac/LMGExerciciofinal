@@ -88,7 +88,8 @@ public class ServletIPVA extends HttpServlet {
 
 	private void mostrarCarros(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("carros", dao.mostrarVeiculos());
-	//	request.setAttribute("anoIPVA", dao.mostrarAnoIPVA());
+		request.setAttribute("anoIPVA", dao.mostrarAnoIPVA());
+		request.setAttribute("totalCadastrado", dao.contarCarros());
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
@@ -128,13 +129,12 @@ public class ServletIPVA extends HttpServlet {
 		Carro carro = dao.buscarCarro(id);
 		
 		request.setAttribute("carros", carro);
-
 		request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
 	}
 	
 	
 	private void mostrarCarroInserido(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		request.setAttribute("totalCadastrado", this.dao.contarCarros());
+		//request.setAttribute("totalCadastrado", this.dao.contarCarros());
 		request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
 	}
 	

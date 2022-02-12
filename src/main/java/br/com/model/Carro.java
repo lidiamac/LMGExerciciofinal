@@ -69,9 +69,9 @@ public class Carro {
 		this.anoCarro = anoCarro;
 	}
 
-	
+
 	public Boolean getFlag_ipva() {
-		return true;
+		return flag_ipva;
 	}
 
 
