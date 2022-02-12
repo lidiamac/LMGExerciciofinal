@@ -6,6 +6,7 @@ public class Carro {
 	private String modeloCarro;
 	private Integer anoCarro;
 	private Boolean flag_ipva;
+
 	
 
 	public Carro() {
@@ -84,6 +85,8 @@ public class Carro {
 		return "\n\nCarro [idCarro=" + idCarro + ", \nmodeloCarro=" + modeloCarro + ", \nanoCarro=" + anoCarro + ", \npagaIPVA="
 				+ flag_ipva + "]";
 	}
+
+
 
 	
 }

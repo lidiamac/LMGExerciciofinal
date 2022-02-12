@@ -12,6 +12,7 @@ import br.com.dao.DAO;
 import br.com.model.Carro;
 //import br.com.model.IPVA;
 //import model.Container;
+import br.com.model.IPVA;
 
 /**
  * Servlet implementation class ServletIPVA
@@ -20,6 +21,7 @@ import br.com.model.Carro;
 public class ServletIPVA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DAO dao;
+	 IPVA ipva = new IPVA();
 	//IPVA ano = new IPVA();
 
 	/**
@@ -86,6 +88,7 @@ public class ServletIPVA extends HttpServlet {
 
 	private void mostrarCarros(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("carros", dao.mostrarVeiculos());
+	//	request.setAttribute("anoIPVA", dao.mostrarAnoIPVA());
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
@@ -125,6 +128,7 @@ public class ServletIPVA extends HttpServlet {
 		Carro carro = dao.buscarCarro(id);
 
 		request.setAttribute("carros", carro);
+		request.setAttribute("totalCadastrado", dao.contagemCarros());
 		request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
 	}
 	

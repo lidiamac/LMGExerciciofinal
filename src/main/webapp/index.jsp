@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="row mt-1 g-4">
 			<div class="col-md-9 d-flex flex-column">
-				<span class="">TOTAL DE CARROS CADASTRADOS = </span> 
+				<span class="">TOTAL DE CARROS CADASTRADOS = <c:out value="${totalCadastrado}"/></span> 
 				<span class="">TOTAL DE CARROS COM IPVA = </span>
 			</div>
 			<div class="col-md">
@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="row p-3 ps-5 fs-4 justify-content-end">
-			<!--<p class="w-25">ANO: <c:out value="${c.modeloCarro}" /></p>-->
+			<p class="w-25">ANO: <c:out value="${anoIPVA}" /></p>
 		</div>
 
 		<div class="row mt-5">
@@ -54,7 +54,18 @@
 							</td>
 							<td><c:out value="${carros.modeloCarro}"/></td>
 							<td><c:out value="${carros.anoCarro}"/></td>
-							<td><c:out value="${carros.flag_ipva}"/></td>
+							<td>
+								<c:choose>
+								    <c:when test="${carros.flag_ipva == true}">
+								        <p>COM IPVA</p>
+								    </c:when>    
+								    <c:otherwise>
+								        <p>SEM IPVA</p>
+								    </c:otherwise>
+								</c:choose>
+								
+								<!--<c:out value="${carros.flag_ipva}"/>-->
+							</td>
 							<td>
 								<button type="submit" name="option" value="delete">Deletar</button>
 								<button type="submit" name="option" value="updateForm">Atualizar</button>

@@ -3,7 +3,7 @@ import br.com.model.Carro;
 
 public class Teste {
 	public static void main(String[] args) {
-//		DAO dao = new DAO();
+		DAO dao = new DAO();
 //		System.out.println(dao.mostrarVeiculos());
 //		
 //		Carro laranja2 = new Carro();
@@ -27,5 +27,7 @@ public class Teste {
 //		laranja2.setPagaIPVA(false);
 //		dao.alterarCarro(laranja2);
 //		System.out.println(dao.mostrarVeiculos());
+		dao.contagemCarros();
+	
 	}
 }
