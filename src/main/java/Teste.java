@@ -27,7 +27,8 @@ public class Teste {
 //		laranja2.setPagaIPVA(false);
 //		dao.alterarCarro(laranja2);
 //		System.out.println(dao.mostrarVeiculos());
-		dao.contagemCarros();
+		dao.contarCarros();
+		dao.mostrarAnoIPVA();
 	
 	}
 }

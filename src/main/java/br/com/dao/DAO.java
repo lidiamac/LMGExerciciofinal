@@ -137,32 +137,33 @@ public class DAO {
 
 	
 	
-//	
-//	public void mostrarAnoIPVA() {
-//		Conexao c = Conexao.getInstance();
-//		Connection con = c.getConnection();
-//		ArrayList<IPVA> anoIPVA = new ArrayList<>();
-//		try {
-//			PreparedStatement p = con.prepareStatement("select ano from ipva");
-//			ResultSet r = p.executeQuery();
-//			System.out.println(p);
-//			//Integer id = r.getInt("id");
-//			Integer ano = r.getInt("ano");
-//			System.out.println(ano);
-//			
-//			IPVA ipva = new IPVA(ano);
-//			System.out.println(ipva);
-//			
-//			//ipva.setIdIPVA(id);
-//			anoIPVA.add(ipva);
-//			
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public Integer mostrarAnoIPVA() {
+		Conexao c = Conexao.getInstance();
+		Connection con = c.getConnection();
+		 try {
+			 Integer ano = null;
+			 PreparedStatement p = con.prepareStatement("select ano from ipva");
+			 ResultSet r = p.executeQuery();
+			 r.next();
+			 
+			 ano = r.getInt("ano");
+			 
+			 System.out.println(ano);
+			 
+			r.close();
+			p.close();
+			
+			return ano;
+		 } catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;    		
+    }
 	
-	public Integer contagemCarros() {
+	
+	
+	
+	public Integer contarCarros() {
 		Conexao c = Conexao.getInstance();
 		Connection con = c.getConnection();
 		 try {
